@@ -1,0 +1,27 @@
+.navbar.navbar-inverse.daNav{
+	border-radius: 0px;
+	margin-bottom: 0px;
+}
+.background img{
+	width: 100%;
+}
+.mission{
+	.color{
+		background-color: #809fff;
+	}
+	.missionText{
+		float: left;
+		.pStuff{
+			float: right;
+		}
+		.threats{
+		position: absolute;
+	    top: 66%;
+	    right: 29.5%;
+		}
+	}
+	.missionText img{
+		width: 50%;
+		border: 1px solid black;
+	}
+}

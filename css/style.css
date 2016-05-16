@@ -1,0 +1,34 @@
+/* line 1, ../Compass/sass/style.scss */
+.navbar.navbar-inverse.daNav {
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+/* line 5, ../Compass/sass/style.scss */
+.background img {
+  width: 100%;
+}
+
+/* line 9, ../Compass/sass/style.scss */
+.mission .color {
+  background-color: #809fff;
+}
+/* line 12, ../Compass/sass/style.scss */
+.mission .missionText {
+  float: left;
+}
+/* line 14, ../Compass/sass/style.scss */
+.mission .missionText .pStuff {
+  float: right;
+}
+/* line 17, ../Compass/sass/style.scss */
+.mission .missionText .threats {
+  position: absolute;
+  top: 66%;
+  right: 29.5%;
+}
+/* line 23, ../Compass/sass/style.scss */
+.mission .missionText img {
+  width: 50%;
+  border: 1px solid black;
+}
