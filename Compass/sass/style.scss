@@ -25,3 +25,22 @@
 		border: 1px solid black;
 	}
 }
+.solutionLabel{
+	clear: both;
+}
+.left-container{
+	border: 1px solid black;
+	margin-top: 1%;
+	float: left;
+}
+.left-container .user, .left-container .text, .left-container .date{
+		float: left;
+	}
+.right-container {
+  float: left;
+  height: 40px;
+}
+.right-container .arrowUp, .right-container .arrowDown, .right-container .voteCount {
+  float: right;
+  margin-right: 40px;
+}

@@ -2,7 +2,6 @@
 
 require_once 'includes/meekrodb.2.3.class.php';
 require_once 'includes/head.php';
-require_once 'includes/header.php';
 
 ?>
 
@@ -30,16 +29,21 @@ require_once 'includes/header.php';
     <input type="text" class="form-control" name="userName" id="userName" name="email" placeholder="User Name">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword2">Confirm assword</label>
-    <input type="password" class="form-control" name="password2" id="exampleInputPassword2" placeholder="Confirm Password">
+    <label for="password2">Confirm Password</label>
+    <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm Password">
+    <div class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" id="exampleInputFile" name="avatar">
+      <p class="help-block">Example block-level help text here.</p>
+    </div>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

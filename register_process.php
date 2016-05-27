@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
 require_once 'includes/meekrodb.2.3.class.php';
 DB::$user = 'x';
 DB::$password = 'x';
@@ -20,6 +21,29 @@ if(!$result){
 }
 if($can_register && ($_POST['password'] == $_POST['password2'])){
 $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+$target_dir = "uploads/";
+		$target_file = $target_dir . basename($_FILES["avatar"]["name"]);
+		$uploadOk = 1;
+		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+		//Check if image file is a actual image or fake image
+		$check = getimagesize($_FILES["avatar"]["tmp_name"]);
+		if($check !== false) {
+		    echo "File is an image - " . $check["mime"] . ".";
+		    $uploadOk = 1;
+		} else {
+		    echo "File is not an image.";
+		    $uploadOk = 0;
+		    header('Location: register.php?error=fakeimage');
+		    exit;
+		}
+	    if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
+	        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+	    } else {
+	        echo "Sorry, there was an error uploading your file.";
+	    }
+
+
 try{
 DB::insert('users', array(
 	'userName' => $_POST['userName'],

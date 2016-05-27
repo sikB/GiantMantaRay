@@ -3,14 +3,18 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
 	require_once 'includes/head.php';
-	// require_once 'includes/header.php';
-	// require_once 'includes/register.php';
+	$all_posts = DB::query("SELECT posts.id, posts.userName, posts.postText, posts.timeStamp, SUM(votes.voteDirection) as aggregateVotes
+		FROM posts posts
+		left join votes votes on posts.id = votes.pid
+		group by posts.id;");
 
+	// if($_GET['post'] == 'success'){
+		// print "Your post came through";
+	// }
 ?>
-
-<body>
+<html ng-app='gmrApp'>
+<body ng-controller='gmrController'>
 	<div class="container col-sm-12">
 		<div class="background">
 			<div class="row">
@@ -32,6 +36,37 @@ In addition to natural predation, mantas face significant threats from humans an
 				</div>
 			</div>
 		</div>
+		<h1 class="text-center">Do you have a solution?</h1>
+		<?php if(isset($_SESSION['userName'])): ?>
+			<form action="post_process.php" method="post">
+				<div class="form-group text-center">
+					<label for="postText" class="solutionLabel">Your soution to save the Giant Mantas</label><br>
+					<textarea id="postText" name="postText" class="col-sm-6 col-sm-offset-3"></textarea><br>
+				</div><br>
+				<button type="submit" class="btn btn-default col-sm-offset-6">Post</button>
+			</form>
+		<?php else: ?>
+			<h3>You must be <a href="login.php">Logged In </a>to make a post</h3>
+		<?php endif; ?>
+		<?php foreach($all_posts as $post): ?>
+			<?php 
+				date_default_timezone_set('America/New_York');
+				$timestamp_as_unix = strtotime($post['timeStamp']);
+				$formatted_date = date('D F j, Y, h:ia', $timestamp_as_unix);
+			?>
+			<div class="post">
+				<div class="left-container">
+					<div class="user"><?php print $post['userName']; ?></div>
+					<div class="text"><?php print $post['postText']; ?></div>
+					<div class="date"><?php print $formatted_date; ?></div>
+				</div>			
+				<div class="right-container" id="<?php print $post['id'];?>">
+					<div class="arrowUp" ng-click='processVote($event, 1)'>X</div>
+					<div class="voteCount"><?php print $post['aggregateVotes'];?></div>
+					<div class="arrowDown" ng-click='processVote($event, -1)'>Z</div>
+				</div>
+			</div>
+		<?php endforeach; ?>
 	</div>
 
 

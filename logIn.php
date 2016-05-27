@@ -4,8 +4,13 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
 require_once 'includes/meekrodb.2.3.class.php';
 require_once 'includes/head.php';
+DB::$user = 'x';
+DB::$password = 'x';
+DB::$dbName = 'GiantMantaRay';
+DB::$host = '127.0.0.1';
 ?>
 
 <form action="login_process.php" method="post">

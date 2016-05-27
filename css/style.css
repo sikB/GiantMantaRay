@@ -32,3 +32,32 @@
   width: 50%;
   border: 1px solid black;
 }
+
+/* line 28, ../Compass/sass/style.scss */
+.solutionLabel {
+  clear: both;
+}
+
+/* line 31, ../Compass/sass/style.scss */
+.left-container {
+  border: 1px solid black;
+  margin-top: 1%;
+  float: left;
+}
+
+/* line 36, ../Compass/sass/style.scss */
+.left-container .user, .left-container .text, .left-container .date {
+  float: left;
+}
+
+/* line 39, ../Compass/sass/style.scss */
+.right-container {
+  float: left;
+  height: 40px;
+}
+
+/* line 43, ../Compass/sass/style.scss */
+.right-container .arrowUp, .right-container .arrowDown, .right-container .voteCount {
+  float: right;
+  margin-right: 40px;
+}
